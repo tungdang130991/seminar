@@ -1,0 +1,110 @@
+﻿@using Seminar.Web.Models
+@model Seminar.Repository.Entity.MMeasurementTag
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<Seminar.Web.Resources> Localizer
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row">
+    <div class="page_title col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 4px; padding-bottom: 4px;">
+        <h4 style="margin-bottom: 0px;">@Html.Raw(ViewBag.Title)</h4>
+    </div>
+</div>
+
+<div class="spacer"></div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <form id="tag_form" asp-area="Admin" asp-controller="Tag" asp-action="Save">
+            <div class="row">
+                <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&lt;head&gt;内</label>
+                <div class="col-lg-11 col-md-10 col-sm-9 col-xs-8">
+                    <textarea asp-for="MmtHeadArea" id="head_area" class="form-control" rows="5" readonly maxlength="@Html.Raw(ViewBag.MaxlengthTag)"> </textarea>
+                    <span asp-validation-for="MmtHeadArea"></span>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+                    <button id="head_area_edit" type="button" onclick="tag.hideButton('head_area')" class="tag_button">編　集</button>
+                    <button id="head_area_save" type="button" onclick="tag.showSaveDialog('dialog_confirm_save')" class="d-none tag_button">保　存</button>
+                    <button id="head_area_cancel" type="button" data-toggle="modal" data-target="#dialog_confirm_cancel" class="d-none tag_button">中　止</button>
+                </div>
+            </div>
+
+
+            <div class="spacer"></div>
+            <div class="row">
+                <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&lt;body&gt;直後</label>
+                <div class="col-lg-11 col-md-10 col-sm-9 col-xs-8">
+                    <textarea asp-for="MmtBodyTop" id="body_top" class="form-control" rows="5" readonly maxlength="@Html.Raw(ViewBag.MaxlengthTag)"></textarea>
+                    <span asp-validation-for="MmtBodyTop"></span>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+                    <button id="body_top_edit" type="button" onclick="tag.hideButton('body_top')" class="tag_button">編　集</button>
+                    <button id="body_top_save" type="button" onclick="tag.showSaveDialog('dialog_confirm_save')" class="d-none tag_button">保　存</button>
+                    <button id="body_top_cancel" type="button" data-toggle="modal" data-target="#dialog_confirm_cancel" class="d-none tag_button">中　止</button>
+                </div>
+            </div>
+
+            <div class="spacer"></div>
+            <div class="row">
+                <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&lt;/body&gt; 直前</label>
+                <div class="col-lg-11 col-md-10 col-sm-9 col-xs-8">
+                    <textarea asp-for="MmtBodyBottom" id="body_bottom" class="form-control" rows="5" readonly maxlength="@Html.Raw(ViewBag.MaxlengthTag)"></textarea>
+                    <span asp-validation-for="MmtBodyBottom"></span>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+                    <button id="body_bottom_edit" type="button" onclick="tag.hideButton('body_bottom')" class="tag_button">編　集</button>
+                    <button id="body_bottom_save" type="button" onclick="tag.showSaveDialog('dialog_confirm_save')" class="d-none tag_button">保　存</button>
+                    <button id="body_bottom_cancel" type="button" data-toggle="modal" data-target="#dialog_confirm_cancel" class="d-none tag_button">中　止</button>
+                </div>
+            </div>
+            <input type="submit" hidden  />
+        </form>
+        <div>
+            <a id="original_data" hidden></a>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script>
+    $('#tag_form').submit(function(event) {
+        tag.save(event);
+    });
+</script>
+@{
+    var popupModelInfo = new PopupViewModel()
+    {
+        JsPopupId = "dialog_infor",
+        Title = ViewBag.Title,
+        Content = "",// The value depends on the result responded from server
+        JsContentId = "dialog_infor_content"
+    };
+}
+
+@await Html.PartialAsync("_PopupClose", popupModelInfo)
+
+@{
+    var popupModelSave = new PopupViewModel()
+    {
+        JsPopupId = "dialog_confirm_save",
+        Title = ViewBag.Title,
+        Content = Localizer["I.HSP-M102.0001"].Value,
+        JsMethodYesAction = "tag.submit()",
+    };
+}
+
+@await Html.PartialAsync("_PopupYesNo", popupModelSave)
+
+@{
+    var popupModelCancel = new PopupViewModel()
+    {
+        JsPopupId = "dialog_confirm_cancel",
+        Title = ViewBag.Title,
+        Content = Localizer["I.HSP-M102.0004"].Value,
+        JsMethodYesAction = "tag.cancel()",
+    };
+}
+
+@await Html.PartialAsync("_PopupYesNo", popupModelCancel)
+<script src="~/js/constant.js"></script>
+<script src="~/js/measurement.tag.js"></script>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Seminar.Repository.Entity.MSchool>
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<Seminar.Web.Resources> Localizer
+<table id="table_schools" class="table table-hover">
+    <thead id="table_header">
+        <tr id="tr_header" style="border-bottom:1px solid red">
+            <td>拠点コード</td>
+            <td>拠点名称</td>
+            <td>拠点英語名称</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody id="table_school_body">
+        @foreach (var school in Model)
+        {
+            if (school.MsDeleteDatetime == null)
+            {
+                <tr id="@school.MsCd">
+                    <td>@school.MsCd</td>
+                    <td>@school.MsName</td>
+                    <td>@school.MsNameEng</td>
+                    <td>
+                        <button type="button" class="btn_edit" onclick="school.getEditingHtml(@Html.Raw("'"+school.MsCd+"'"))">編集</button>
+                        <button type="button" class="btn_delete" onclick="school.showpopupsave(2,@Html.Raw("'"+school.MsCd+"'"),'@Localizer["HSP-M002.0001"].Value')">削除</button>
+                    </td>
+                </tr>
+            }
+        }
+        @foreach (var school in Model)
+        {
+            if (school.MsDeleteDatetime.HasValue)
+            {
+                <tr style="background-color:lightslategrey" id="@school.MsCd">
+                    <td>@school.MsCd</td>
+                    <td>@school.MsName</td>
+                    <td>@school.MsNameEng</td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

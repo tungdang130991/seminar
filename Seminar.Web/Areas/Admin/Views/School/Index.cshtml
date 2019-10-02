@@ -1,0 +1,54 @@
+﻿
+@using Seminar.Web.Models
+@model IEnumerable<Seminar.Repository.Entity.MSchool>
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<Seminar.Web.Resources> Localizer
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/shool.css" rel="stylesheet" />
+<script src="~/js/validator.js"></script>
+<script src="~/js/school.js"></script>
+<script src="~/js/constant.js"></script>
+<div class="row">
+    <div class="page_title col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 4px; padding-bottom: 4px;">
+        <h4 style="margin-bottom: 0px;">拠点マス夕</h4>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+<button id="btn_insert" onclick="school.createRowForNewSchool()">新規拠点登録</button>
+<div id="school_container">
+    <form id="school_form">
+        @{
+            Html.RenderPartial("~/Areas/Admin/Views/School/_List.cshtml", Model);
+        }
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@{var popupModelInfo = new PopupViewModel()
+    {
+        JsPopupId = "dialog_infor",
+        Title = ViewBag.Title,
+        Content = "",// The value depends on the result responded from server
+        JsContentId = "dialog_infor_content"
+    };
+}
+
+@await Html.PartialAsync("_PopupClose", popupModelInfo)
+
+
+@{var popupModelSave = new PopupViewModel()
+    {
+        JsPopupId = "dialog_confirm_save",
+        Title = ViewBag.Title,
+        Content = Localizer["HSP-M002.0001"].Value,
+        JsMethodYesAction = "",
+    };
+}
+
+@await Html.PartialAsync("_PopupYesNo", popupModelSave)

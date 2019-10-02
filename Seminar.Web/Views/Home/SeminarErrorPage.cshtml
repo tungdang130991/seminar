@@ -1,0 +1,14 @@
+﻿@model ErrorViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "SeminarErrorPage";
+}
+
+    <h2>
+        セミナー／講座管理システム
+    </h2>
+
+    <p>@Html.DisplayFor(model => model.Message)</p>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='@Html.Raw(Model.PreviousUrl)'">
+        Go to the Previous page.
+    </button>

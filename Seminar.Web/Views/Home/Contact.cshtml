@@ -1,0 +1,25 @@
+﻿@using Seminar.Web.Models
+@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+</button>
+
+@* Below code just used for example: how to use PopupViewModel and YesNo, Close popup partial view *@
+@{ 
+    var popupModel = new PopupViewModel()
+    {
+        JsPopupId = "exampleModalCenter",
+        Title = "5467",
+        Content = "eh547567",
+        JsMethodYesAction = "678678",
+        JsMethodNoAction = "uyi"
+    };
+}
+
+@await Html.PartialAsync("_PopupClose", popupModel)
+

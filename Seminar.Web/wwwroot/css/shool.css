@@ -1,0 +1,38 @@
+﻿body {
+}
+.table tbody button {
+    background-color: forestgreen;
+    height: 40px !important;
+    width: 100px !important;
+    text-align:center;
+    color:aliceblue;
+
+}
+
+#div_header{
+    width:80%;
+    height:100px;
+    text-align:center;
+    padding:30px;
+    margin:0 auto;
+}
+#div_header a:hover{
+    color:orangered;
+    cursor:pointer;
+}
+#div_header a{
+    color:darkgreen;
+}
+#tbbodyId tr:hover{
+    background-color: aliceblue;
+}
+#table_id thead tr td{
+    color:red;
+}
+#table_id tbody tr td a{
+    color:blue;
+}
+.table{
+    border:outset;
+}
+

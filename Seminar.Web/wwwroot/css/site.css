@@ -1,0 +1,270 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+/*body {*/
+/*    margin: 0px;*/
+/*    padding: 0px;*/
+/*    font-size: 12px;*/
+/*    line-height: 150%;*/
+/*    color: #333333;*/
+/*    overflow-x: hidden;*/
+/*    -ms-overflow-style: scrollbar;*/
+/*}*/
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+/*.body-content {*/
+/*    padding-left: 15px;*/
+/*    padding-right: 15px;*/
+/*}*/
+
+/* Carousel */
+/*.carousel-caption p {*/
+/*    font-size: 20px;*/
+/*    line-height: 1.4;*/
+/*}*/
+
+/* Make .svg files in the carousel display properly in older browsers */
+/*.carousel-inner .item img[src$=".svg"] {*/
+/*    width: 100%;*/
+/*}*/
+
+/* QR code generator */
+/*#qrCode {*/
+/*    margin: 15px;*/
+/*}*/
+
+/* Hide/rearrange for smaller screens */
+/*@media screen and (max-width: 767px) {*/
+/*    !* Hide captions *!*/
+/*    .carousel-caption {*/
+/*        display: none;*/
+/*    }*/
+/*}*/
+
+#login {
+    font-size: 12px;
+    line-height: 150%;
+    color: #333333;
+    padding: 0 10px 0 0;
+}
+
+/*begin FOOTER css*/
+/*by trungnp at 07/09/2019*/
+/*#footer {
+    text-align: center;
+    line-height: 45px;
+    display:block;
+}
+
+#footer hr{
+    margin: 0;
+}
+#footer p{
+    margin: 0;
+}*/
+
+/*begin main css*/
+/*by trungnp at 04/09/2019*/
+/*#main {*/
+/*    font-size: 12px;*/
+/*    line-height: 150%;*/
+/*    color: #333333;*/
+/*    padding: 0 10px 0 10px;*/
+/*}*/
+
+/*begin MENU css*/
+/*by trungnp at 04/09/2019*/
+
+
+.tit_menu_seminar_management {
+    background: url(../images/Menu/tit_menu_seminarmanagement.gif);
+    background-repeat: no-repeat;
+}
+
+.tit_menu_product_management {
+    background: url(../images/Menu/tit_menu_productmanagement.gif);
+    background-repeat: no-repeat;
+}
+
+.tit_menu_system_management{
+    background: url(../images/Menu/tit_menu_systemmanagement.gif);
+    background-repeat: no-repeat;
+}
+
+.tit_menu_system_authentication{
+    background: url(../images/Menu/tit_menu_systemauthentication.gif);
+    background-repeat: no-repeat;
+}
+
+/*.menu_system_authentication{
+    position: absolute;
+    bottom: 0;
+}*/
+
+.tit_text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333333;
+    padding: 7px 0 0 27px;
+    width: 200px;
+    height: 25px;
+}
+
+.menu_bg {
+    background: url(../images/Menu/menu_bg.gif) repeat-y;
+    padding: 5px 5px 2px 5px;
+    width: 200px;
+}
+
+.menu_bg ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu_text {
+    background: url(../images/Menu/list_icon.gif) no-repeat;
+    background-position: 0 8px;
+    font-size: 12px;
+    line-height: 150%;
+    padding: 2px 0 2px 10px;
+}
+
+.line {
+    background: url(../images/Menu/dot_line.gif) repeat-x;
+    font-size: 0px;
+    line-height: 100%;
+    height: 3px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu_footer {
+    background: url(../images/Menu/menu_footer.gif);
+    width: 200px;
+    height: 5px;
+    font-size: 0px;
+    margin: 0 0 10px 0;
+}
+
+.tag_button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    max-width: 60px;
+    min-width: 60px;
+    border-radius: 3px;
+}
+
+.tag_button:disabled {
+    background-color: #918c8c; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    max-width: 60px;
+    min-width: 60px;
+    border-radius: 3px;
+}
+
+.pre-header {
+    background-color: green;
+    height: 66px;
+    background: url(../images/Menu/header_bg.gif);
+    display: block;
+}
+
+.header {
+    /*background-color: green;*/
+    height: 66px;
+    background: url(../images/Menu/header_bg.gif);
+    display: block;
+}
+
+.left-content {
+    /*background-color: yellow;*/
+    height: auto;
+    float: left;
+    max-width: 220px;
+    min-width: 220px;
+    padding-left: 10px;
+    padding-top: 21px;
+}
+
+.right-content {
+    height: auto;
+    /*background-color: blue;*/
+    margin-left: 220px;
+}
+
+.search-input {
+    border: 1px grey dashed;
+}
+
+.search-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.page_title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 150%;
+    border-left: 5px solid #4ab969;
+    border-bottom: 1px solid #4ab969;
+    padding: 0 0 0 0;
+    margin-top: 21px;
+    margin-left: 10px;
+}
+.spacer {
+    display: block;
+    height: 10px;
+    width: 100%;
+}
+textarea.form-control {
+    min-height: 100px;
+}
+
+.field-validation-error{
+    color:red;
+}
+
+.validation-summary-errors ul li {
+    color: red;
+}
+
+.deleted_item {
+
+}
+
+.btn_confirm {
+
+}
+
+.btn_btn_register{
+
+}
+
+.btn_cancel {
+}
+
+.btn_edit {
+
+}
+
+.btn_delete {
+
+}

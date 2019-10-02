@@ -1,0 +1,26 @@
+﻿
+@model Seminar.Repository.Entity.MSchool
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<Seminar.Web.Resources> Localizer
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Nullable<bool> isCodeEditable = ViewData["IsCodeEditable"] as Nullable<bool>;
+}
+
+@if (isCodeEditable.HasValue && isCodeEditable.Value)
+{
+    // If school is editable, create a textbox for code field
+    <td><input asp-for="MsCd" /></td>
+}
+else
+{
+    <td>@Html.DisplayFor(model => model.MsCd)</td>
+}
+<td>
+    <input asp-for="MsName" /><br />
+    <div asp-validation-summary="All"></div>
+</td>
+<td><input asp-for="MsNameEng" /></td>
+<td>
+    <button type="button" class="btn_confirm" onclick="school.showpopupsave(1,@Html.Raw("'" + Model.MsCd + "'"),'@Localizer["I.HSP-M002.0015"].Value')">更新</button>
+    <button type="button" class="btn_cancel" onclick="school.showpopupsave(3,'','@Localizer["I.HSP-M002.0014"].Value')">キャンセル</button>
+</td>

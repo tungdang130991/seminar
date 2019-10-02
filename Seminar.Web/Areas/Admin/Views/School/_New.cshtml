@@ -1,0 +1,18 @@
+﻿@model Seminar.Repository.Entity.MSchool
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<Seminar.Web.Resources> Localizer
+
+<tr id="id_addnew">
+    <td><input asp-for="MsCd" required="required" /></td>
+    <td>
+        <input asp-for="MsName" id="MsName" required="required" />
+        <div asp-validation-summary="All"></div>
+        @*<span asp-validation-for="MsName" class="text-danger"></span>*@
+
+    </td>
+    <td><input asp-for="MsNameEng" required="required" /></td>
+    <td>
+        <button class="btn_register" type="button" onclick="school.showpopupsave(0,'','@Localizer["I.HSP-M002.0010"].Value')"> 登録</button>
+        <button class="btn_cancel" type="button" onclick="school.showpopupsave(3,'','@Localizer["I.HSP-M002.0014"].Value')">キャンセル</button>
+    </td>
+</tr>
